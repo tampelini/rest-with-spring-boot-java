@@ -18,4 +18,10 @@ public class GreetingController {
 	public Greeting greeting(@RequestParam(value ="name", defaultValue = "World") String name) {
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
+	
+	@RequestMapping("/ola")
+	public String greeting() {
+		return "oi tudo bem!";	
+	}
+	
 }
