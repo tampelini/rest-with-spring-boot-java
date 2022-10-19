@@ -11,16 +11,17 @@ public class HellowController {
 
 	
 	@RequestMapping("/hellow")
-	public String helloWord(@RequestParam(value ="name", defaultValue = "'nobody") String name) {
+	public String helloWord(@RequestParam(value ="name", defaultValue = "nobody") String name) {
 		return "Hellow Word " + name + "!";
 	}
 	
 	@GetMapping("/person")
-	public Person helloPerson(@RequestParam(value ="name", defaultValue = "'nobody") String name) {
+	public Person helloPerson(@RequestParam(value ="name", defaultValue = "nobody") String name,
+			@RequestParam(value ="age", defaultValue = "0") Integer age) {
 		Person aux = new Person();
 		
-		//aux.setName(name);
-		//aux.setAge(null);
+		aux.setName(name);
+		aux.setAge(age);
 		
 		return aux;
 	}
