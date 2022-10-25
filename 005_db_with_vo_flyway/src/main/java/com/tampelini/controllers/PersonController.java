@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tampelini.services.PersonServices;
 import com.tampelini.data.vo.v1.PersonVO;
-import com.tampelini.data.vo.v2.PersonVO2;
 
 @RestController
+//@RequestMapping("/api/person/v1")
 @RequestMapping("/person")
 public class PersonController {
 	
@@ -38,11 +38,6 @@ public class PersonController {
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PersonVO create(@RequestBody PersonVO person) {
 		return service.create(person);
-	}
-	
-	@PostMapping(value = "/v2", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PersonVO2 createV2(@RequestBody PersonVO2 person) {
-		return service.createV2(person);
 	}
 	
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

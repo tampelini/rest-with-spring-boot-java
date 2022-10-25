@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tampelini.data.vo.v1.PersonVO;
-import com.tampelini.data.vo.v2.PersonVO2;
 import com.tampelini.exceptions.ResourceNotFoundException;
 import com.tampelini.mapper.DozerMapper;
-import com.tampelini.mapper.custom.PersonMapper;
 import com.tampelini.model.Person;
 import com.tampelini.repositories.PersonRepository;
 
@@ -21,9 +19,6 @@ public class PersonServices {
 	
 	@Autowired
 	PersonRepository repository;
-	
-	@Autowired
-	PersonMapper mapper;
 
 	public List<PersonVO> findAll() {
 		logger.info("Finding all people!");
@@ -43,15 +38,6 @@ public class PersonServices {
 		
 		var entity =  DozerMapper.parseObject(person, Person.class);
 		var vo = DozerMapper.parseObject(repository.save(entity), PersonVO.class);
-		
-		return vo;
-	}
-	
-	public PersonVO2 createV2(PersonVO2 person) {
-		logger.info("Creating one person v2!");
-		
-		var entity =  mapper.convertVoToEntity(person);
-		var vo = mapper.convertEntityToVo(repository.save(entity));
 		
 		return vo;
 	}
