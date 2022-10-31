@@ -22,6 +22,7 @@ public class MathController {
 		
 		if(!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo)) {
 			throw new UnsupportedMathOperationException("Please set a numeric value!");
+			//throw new Exception("DEu ruim!!!");
 		}
 		
 		return math.sum(NumberConverter.convertToDouble(numberOne), NumberConverter.convertToDouble(numberTwo));

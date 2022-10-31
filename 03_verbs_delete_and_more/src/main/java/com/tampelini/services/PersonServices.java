@@ -28,7 +28,7 @@ public class PersonServices {
 	
 	private Person mokPerson(int i) {
 		
-		logger.info("Finding all people!");
+		logger.info("MOCK Finding all people!");
 		
 		Person person = new Person();
 		person.setId(counter.incrementAndGet());
@@ -43,11 +43,13 @@ public class PersonServices {
 	
 	public Person create(Person person) {
 		logger.info("Creating one person!");
+		// here we will access the database		
 		return person;
 	}
 
 	public Person update(Person person) {
 		logger.info("Updating one person!");
+		// here we will access the database
 		return person;
 	}
 	

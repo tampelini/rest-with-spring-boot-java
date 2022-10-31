@@ -20,14 +20,25 @@ public class PersonController {
 	
 	@Autowired
 	private PersonServices service;
-	// private PersonService service = new PersonService();
 	
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Person findById(@PathVariable(value = "id") String id) {
 		
+		/*
+		Person aux = new Person();
+		aux.setId(1L);
+		aux.setFirstName("Leonardo");
+		aux.setLastName("Tampelini");
+		aux.setAddress("Rua Voluntários da Pátria, Cascavel-PR");
+		aux.setGender("Male");
+		
+		return aux;
+		*/
+		
 		return service.findById(id);
 	}
+	
 	
 	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Person> findAll() {
